@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductContoller extends Controller
+class ProductController extends Controller
 {
 
     /**
@@ -14,7 +14,8 @@ class ProductContoller extends Controller
     public function index()
     {
         $product = new Product();
-        dd($product->fetchAllProduct());
+        $productItem = $product->all();
+        return response()->json($productItem->toJson());
         
     }
 

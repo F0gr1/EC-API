@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public function  fetchAllProduct()
-    {
-        return $this->get();
-    }
+    protected  $table = 'products';
+    
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['price' , 'name' ,'description'];
+
+    
 }
