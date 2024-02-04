@@ -18,6 +18,8 @@ return new class extends Migration
             $table->Integer('price');
             $table->string('name');
             $table->text('description');
+            $table->string('images');
+            $table->timestamp('sold_at');
             $table->timestamps();
         });
     }

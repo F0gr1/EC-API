@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+use App\Services\ProductService;
 class ProductController extends Controller
 {
+    protected $productService;
 
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $product = new Product();
-        $productItem = $product->all();
+        $productItem = $this->productService->AllGetProduct();
         return response()->json($productItem->toJson());
         
     }
